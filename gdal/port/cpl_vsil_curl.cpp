@@ -915,7 +915,7 @@ static size_t VSICurlHandleWriteFunc( void *buffer, size_t count,
                          (psStruct->nEndOffset - psStruct->nStartOffset + 1)) )
                     {
                         CPLError(CE_Failure, CPLE_AppDefined,
-                                 "Range downloading not supported by this "
+                                 "(VSICurlHandleWriteFunc) Range downloading not supported by this "
                                  "server!");
                         psStruct->bError = true;
                         return 0;
@@ -1678,7 +1678,7 @@ retry:
             if( strcmp(szCurlErrBuf, "Couldn't use REST") == 0 )
                 CPLError(
                     CE_Failure, CPLE_AppDefined,
-                    "%d: %s, Range downloading not supported by this server!",
+                    "%d: %s, (DownloadRegion) Range downloading not supported by this server!",
                     static_cast<int>(response_code), szCurlErrBuf);
             else
                 CPLError(CE_Failure, CPLE_AppDefined, "%d: %s",
@@ -2289,7 +2289,7 @@ int VSICurlHandle::ReadMultiRangeSingleGet(
             if( strcmp(szCurlErrBuf, "Couldn't use REST") == 0 )
                 CPLError(
                     CE_Failure, CPLE_AppDefined,
-                    "%d: %s, Range downloading not supported by this server!",
+                    "%d: %s, (ReadMultiRangeSingleGet) Range downloading not supported by this server!",
                     static_cast<int>(response_code), szCurlErrBuf);
             else
                 CPLError(CE_Failure, CPLE_AppDefined, "%d: %s",
