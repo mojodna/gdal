@@ -906,7 +906,7 @@ static size_t VSICurlHandleWriteFunc( void *buffer, size_t count,
                     psStruct->bIsInHeader = false;
 
                     // Detect servers that don't support range downloading.
-                    if( psStruct->nHTTPCode == 200 &&
+                    if( // psStruct->nHTTPCode == 200 &&
                         psStruct->bDetectRangeDownloadingError &&
                         !psStruct->bMultiRange &&
                         // !psStruct->bFoundContentRange &&
