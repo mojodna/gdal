@@ -909,7 +909,7 @@ static size_t VSICurlHandleWriteFunc( void *buffer, size_t count,
                     if( psStruct->nHTTPCode == 200 &&
                         psStruct->bDetectRangeDownloadingError &&
                         !psStruct->bMultiRange &&
-                        !psStruct->bFoundContentRange &&
+                        // !psStruct->bFoundContentRange &&
                         (psStruct->nStartOffset != 0 ||
                          psStruct->nContentLength > 10 *
                          (psStruct->nEndOffset - psStruct->nStartOffset + 1)) )
