@@ -906,20 +906,20 @@ static size_t VSICurlHandleWriteFunc( void *buffer, size_t count,
                     psStruct->bIsInHeader = false;
 
                     // Detect servers that don't support range downloading.
-                    if( // psStruct->nHTTPCode == 200 &&
-                        psStruct->bDetectRangeDownloadingError &&
-                        !psStruct->bMultiRange &&
-                        // !psStruct->bFoundContentRange &&
-                        (psStruct->nStartOffset != 0 ||
-                         psStruct->nContentLength > 10 *
-                         (psStruct->nEndOffset - psStruct->nStartOffset + 1)) )
-                    {
-                        CPLError(CE_Failure, CPLE_AppDefined,
-                                 "(VSICurlHandleWriteFunc) Range downloading not supported by this "
-                                 "server!");
-                        psStruct->bError = true;
-                        return 0;
-                    }
+                    // if( psStruct->nHTTPCode == 200 &&
+                    //     psStruct->bDetectRangeDownloadingError &&
+                    //     !psStruct->bMultiRange &&
+                    //     !psStruct->bFoundContentRange &&
+                    //     (psStruct->nStartOffset != 0 ||
+                    //      psStruct->nContentLength > 10 *
+                    //      (psStruct->nEndOffset - psStruct->nStartOffset + 1)) )
+                    // {
+                    //     CPLError(CE_Failure, CPLE_AppDefined,
+                    //              "(VSICurlHandleWriteFunc) Range downloading not supported by this "
+                    //              "server!");
+                    //     psStruct->bError = true;
+                    //     return 0;
+                    // }
                 }
             }
         }
