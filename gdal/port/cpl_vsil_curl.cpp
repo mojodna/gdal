@@ -2086,7 +2086,7 @@ int VSICurlHandle::ReadMultiRange( int const nRanges, void ** const ppData,
 
         long response_code = 0;
         curl_easy_getinfo(aHandles[iReq], CURLINFO_HTTP_CODE, &response_code);
-        if( (response_code != 206 && response_code != 225) ||
+        if( (response_code != 200 && response_code != 206 && response_code != 225) ||
             asWriteFuncHeaderData[iReq].nEndOffset+1 !=
                 asWriteFuncHeaderData[iReq].nStartOffset +
                     asWriteFuncData[iReq].nSize )
